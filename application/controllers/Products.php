@@ -170,7 +170,7 @@ class Products extends CI_Controller{
         } 
         $this->load->helper('form');
 
-        $record = $this->products_model->select_by_ssn($ssn);
+        $record = $this->products_model->select_by_id($id);
             $view_params = [
                 'prod'  =>  $record
             ];

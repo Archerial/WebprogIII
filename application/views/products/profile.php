@@ -1,14 +1,12 @@
 <?php echo form_open(); ?>
-<?php echo $prod->name . form_label(' adatlpaja') ; ?>
+<?php echo $prod->id . form_label(' terméklapja') ; ?>
 <br/>
 <br/>
-<img src="<?php echo base_url()?>uploads/img/products/<?php echo $prod->ssn ?>_001"> 
+<img src="<?php echo base_url()?>uploads/img/products/<?php echo $prod->id ?>> 
 <br/>
-<?php echo form_label('Dolgozó neve:    '); ?>
-<?php echo $prod->name ?> <br/>
-<?php echo form_label('TAJ száma:   '); ?>
-<?php echo  $prod->ssn ?> <br/>
-<?php echo form_label('Személyi száma:  '); ?>
-<?php echo $prod->tin ?> <br/>
-<?php echo form_label('Fájl neve:   '); ?>
-<?php echo $prod->ssn .  '_001' ?> <br/>
+<?php echo form_label('Termék neve:    '); ?>
+<?php echo $prod->productName ?> <br/>
+<?php echo form_label('Leírása:   '); ?>
+<?php echo  $prod->productDescription ?> <br/>
+<?php echo form_label('Ára:  '); ?>
+<?php echo $prod->productPrice ?> <br/>

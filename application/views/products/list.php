@@ -19,7 +19,7 @@
             <tr>
                 <td><?=$prod->id?></td>
                 <td><?=$prod->productGroup?></td>
-                <td><?=$prod->productName?></td>
+                <td><a href=" <?php echo $prod->id?>"><?=$prod->productName?></td>
                 <td><?=$prod->productDescription?></td>
                 <td><?=$prod->productPrice?></td>
                 <td><?=$prod->productPicture?></td>
