@@ -22,9 +22,11 @@
                                 'placeholder' => 'Ár']); ?>
 <?php echo form_error('	productPrice'); ?>
 <br/>
-<?php echo form_input('productPicture',set_value('productPicture',''),[ /*'required' => 'required',*/
-                                'placeholder' => 'Kép elérése']); ?>
-<?php echo form_error('productPicture'); ?>
+
+
+<?php echo form_input('productCode',set_value('productCode',''),[ /*'required' => 'required',*/
+                                'placeholder' => 'Termékkód']); ?>
+<?php echo form_error('productCode'); ?>
 
 <?php //echo form_input('picturePath',set_value('picturePath','./uploads/img/products/')); ?>
 <br/>

@@ -1,8 +1,7 @@
 <?php echo form_open(); ?>
-<?php echo $prod->id . form_label(' terméklapja') ; ?>
+<?php echo $prod->productName . form_label(' terméklapja') ; ?>
 <br/>
-<br/>
-<img src="<?php echo base_url()?>uploads/img/products/<?php echo $prod->id ?>> 
+<img src="<?php echo base_url()?><?php echo $prod->productPicture?>">
 <br/>
 <?php echo form_label('Termék neve:    '); ?>
 <?php echo $prod->productName ?> <br/>

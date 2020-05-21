@@ -9,8 +9,8 @@
                 <th>Termékcsoport</th>
                 <th>Neve</th>
                 <th>Leírása</th>
-                <th>Kép</th>
                 <th>Ár</th>
+                <th>Termékkód</th>
             </tr>
         </thead>
         
@@ -19,10 +19,10 @@
             <tr>
                 <td><?=$prod->id?></td>
                 <td><?=$prod->productGroup?></td>
-                <td><a href=" <?php echo $prod->id?>"><?=$prod->productName?></td>
+                <td><?php echo anchor(base_url('products/profile/'.$prod->id), $prod->productName);?>
                 <td><?=$prod->productDescription?></td>
                 <td><?=$prod->productPrice?></td>
-                <td><?=$prod->productPicture?></td>
+                <td><?=$prod->productCode?></td>
                 
                 <td>
                     <?php echo anchor(base_url('products/edit/'.$prod->id),'Módosítás');?>

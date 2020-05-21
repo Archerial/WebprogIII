@@ -18,13 +18,14 @@ class Products_model extends CI_Model{
         return $result;
     }
     
-    public function update($id, $productGroup, $productName, $productDescription,$productPrice,$productPicture){
+    public function update($id, $productGroup, $productName, $productDescription,$productPrice,$productPicture,$productCode){
         $record = [
             'productGroup'  =>  $productGroup, 
-            'productName'   =>  $$productName,
+            'productName'   =>  $productName,
             'productDescription'   =>  $productDescription,
             'productPrice' => $productPrice,
-            'productPicture' => $productPicture
+            'productPicture' => $productPicture,
+            'productCode' => $productCode
         ];
       
         $this->db->where('id',$id);
@@ -41,6 +42,13 @@ class Products_model extends CI_Model{
                         ->row(); 
     }
 
+    public function getId(){
+        $this->db->select_max('id');
+        $this->db->from('products');
+        
+        return $this->db->get()->row(); 
+    }
+
   
     
     
@@ -48,14 +56,16 @@ class Products_model extends CI_Model{
     
     
     
-    public function insert($productGroup, $productName, $productDescription,$productPrice,$productPicture){
+    public function insert($productGroup, $productName, $productDescription,$productPrice,$productPicture,$productCode){
        
         $record = [
             'productGroup'  =>  $productGroup, 
             'productName'   =>  $productName,
             'productDescription'   =>  $productDescription,
             'productPrice' => $productPrice,
-            'productPicture' => $productPicture
+            'productPicture' => $productPicture,
+            'productCode' => $productCode
+
         ];
         
         return $this->db->insert('products',$record);
