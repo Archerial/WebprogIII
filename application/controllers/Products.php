@@ -120,17 +120,22 @@ class Products extends CI_Controller{
         
         $this->load->library('form_validation');
       
-        $this->form_validation->set_rules('name','név','required');
-        $this->form_validation->set_rules('tin','adóazonosító','required');
-        $this->form_validation->set_rules('ssn','TAJ szám','required');
+         
+        $this->form_validation->set_rules('productGroup','Termékcsoprt','required');
+        $this->form_validation->set_rules('productName','Terméknvév','required');
+        $this->form_validation->set_rules('productDescription','Termékleírás','required');
+        $this->form_validation->set_rules('productPrice','Termékára','required');
+        $this->form_validation->set_rules('productCode','Termékkód','required');
          
         
         if($this->form_validation->run() == TRUE){
             
             $this->products_model->update($id, 
-                                           $this->input->post('name'),
-                                           $this->input->post('tin'),
-                                           $this->input->post('ssn'));
+                                           $this->input->post('productGroup'),
+                                           $this->input->post('productName'),
+                                           $this->input->post('productDescription'),
+                                           $this->input->post('productPrice'),
+                                           $this->input->post('productCode'));
             $this->load->helper('url');
             redirect(base_url('products'));
         }
@@ -186,40 +191,6 @@ class Products extends CI_Controller{
     
     
     
-    public function insert2(){
-        
-        $this->load->library('form_validation'); 
-        
-        $this->form_validation->set_rules('productGroup','Termékcsoport','required');
-        $this->form_validation->set_rules('productName','Terméknév','required');
-        
-        $this->form_validation->set_rules('productDescription','Leírás','required');
-        
-        
-        
-        $this->form_validation->set_rules('productPrice','Leírás','required');
-        
-        if($this->form_validaiton->run() == TRUE){
-            
-            echo 'OK';
-        }
-        
-       
-        $this->load->helper('form'); 
-        $this->load->view('products/insert2');
-    }
 
-    public function check_tin($tin, $birth){
-        
-        
-        return true;
-    }
-    
-    
-    public function chech_ssn($ssn){
-        $this->form_validation->set_message('check_ssn','Az ellenörző összeg nem helyes a {field} mezőben');
-        return false;
-        
-    }
 
 }

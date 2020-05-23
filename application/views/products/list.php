@@ -1,4 +1,5 @@
-<?php echo anchor(base_url('products/insert'),'Új hozzáadása'); ?>
+<?php if($this->session->userdata('email')): ?>
+    <?php echo anchor(base_url('products/insert'),'Új hozzáadása'); ?>
 <?php if($products == NULL || empty($products)): ?>
     <p>Nincs rögzítve egyetlen termék sem!</p>
 <?php else: ?>
@@ -35,3 +36,8 @@
     </table>
 <?php endif; ?>
 
+<?php else: 
+    echo 'Először jelentkezzen be';
+?>
+
+<?php endif; ?>

@@ -3,7 +3,6 @@
 class Products_model extends CI_Model{
     public function __construct(){
         parent::__construct();
-        
         $this->load->database();
     }
     
@@ -18,13 +17,12 @@ class Products_model extends CI_Model{
         return $result;
     }
     
-    public function update($id, $productGroup, $productName, $productDescription,$productPrice,$productPicture,$productCode){
+    public function update($id, $productGroup, $productName, $productDescription,$productPrice,$productCode){
         $record = [
             'productGroup'  =>  $productGroup, 
             'productName'   =>  $productName,
             'productDescription'   =>  $productDescription,
             'productPrice' => $productPrice,
-            'productPicture' => $productPicture,
             'productCode' => $productCode
         ];
       
@@ -49,12 +47,6 @@ class Products_model extends CI_Model{
         return $this->db->get()->row(); 
     }
 
-  
-    
-    
-    
-    
-    
     
     public function insert($productGroup, $productName, $productDescription,$productPrice,$productPicture,$productCode){
        

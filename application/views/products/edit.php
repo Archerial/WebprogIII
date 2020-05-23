@@ -2,16 +2,15 @@
 <?php echo form_open(); ?>
 <?php $this->load->helper('url'); ?>
 
-<img src="<?php echo base_url()?>uploads/img/prodloyees/<?php echo $prod->id ?>_001"> 
+<img src="<?php echo base_url()?><?php echo $prod->productPicture?>">
 <br/>
 <?php echo form_input('productGroup',set_value('productGroup',''), [ /*'required' => 'requried',*/ 
                                   'placeholder' => 'Termékcsoportja']); ?>
 <?php echo form_error('productGroup'); ?>
 
 <br/>
-<?php echo form_label('Termék neve:','prod_name'); ?> <br/>
 <?php echo form_input('productName',set_value('productName',''),[ 'id' => 'prod_name',
-                                  /*'required' => 'required'*/]); ?>
+                                  /*'required' => 'required'*/'placeholder' => 'Termék neve']); ?>
 <?php echo form_error('productName');?>
 <br/>
 
@@ -24,9 +23,9 @@
                                 'placeholder' => 'Ár']); ?>
 <?php echo form_error('	productPrice'); ?>
 <br/>
-<?php echo form_input('productPicture',set_value('productPicture',''),[ /*'required' => 'required',*/
-                                'placeholder' => 'Kép elérése']); ?>
-<?php echo form_error('productPicture'); ?>
+<?php echo form_input('productCode',set_value('productCode',''),[ /*'required' => 'required',*/
+                                'placeholder' => 'Termékkód']); ?>
+<?php echo form_error('	productCode'); ?>
 
 <?php //echo form_input('picturePath',set_value('picturePath','./uploads/img/products/')); ?>
 <br/>
