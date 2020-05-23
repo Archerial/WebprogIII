@@ -7,17 +7,7 @@ class User_model extends CI_Model{
         $this->load->database();
     }
 
-    //Userekről lista, adminnak, még jól jöhet
-    public function get_list(){
-        $this->db->select('*'); 
-        $this->db->from('users'); 
-        $this->db->order_by('userName','ASC'); 
-        
-        $query = $this->db->get(); 
-        $result = $query->result(); 
-    
-        return $result;
-    }
+   
 
     public function register($userEmail, $userName, $userPassword){
        
@@ -48,11 +38,19 @@ class User_model extends CI_Model{
 
     }
 
-
-
     public function delete($id){
         $this->db->where('id',$id);
         return $this->db->delete('users');
+    }
+
+    public function select_by_id($id){
+        
+        $this->db->select("*");
+        $this->db->from('users');
+        $this->db->where('id',$id); 
+        
+        return $this->db->get()
+                        ->row(); 
     }
 
 

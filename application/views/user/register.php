@@ -7,7 +7,7 @@
 <?php echo form_label('Email cím:','userEmail'); ?> <br/>
 <?php echo form_input('userEmail',set_value('userEmail',''),[ 'id' => 'userEmail',
                                   /*'required' => 'required'*/]); ?>
-<?php echo form_error('productName');?>
+<?php echo form_error('userEmail');?>
 <br/>
 <br/>
 
@@ -26,5 +26,6 @@
 
 <?php echo form_submit('submit','Regisztáció'); ?>
 <br/>
+<p>Már regisztráltál? <?php echo anchor(base_url('user/login/'),'Lépj be itt');?></p>
 
 <?php echo form_close(); ?>

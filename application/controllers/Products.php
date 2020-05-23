@@ -9,13 +9,21 @@ class Products extends CI_Controller{
     }
     
     public function index(){
-        
        $records = $this->products_model->get_list(); 
        $view_params = [
            'products'  =>  $records
        ];
        $this->load->helper('url'); 
        $this->load->view('products/list', $view_params);
+    }
+
+    public function userlist(){
+        $records = $this->products_model->get_user_list(); 
+        $view_params = [
+            'products'  =>  $records
+        ];
+        $this->load->helper('url'); 
+        $this->load->view('products/userlist', $view_params);
     }
     
    

@@ -16,6 +16,17 @@ class Products_model extends CI_Model{
     
         return $result;
     }
+
+    public function get_user_list(){
+        $this->db->select('*'); 
+        $this->db->from('products'); 
+        $this->db->order_by('productName','ASC'); 
+        
+        $query = $this->db->get(); 
+        $result = $query->result(); 
+    
+        return $result;
+    }
     
     public function update($id, $productGroup, $productName, $productDescription,$productPrice,$productCode){
         $record = [
