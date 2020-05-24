@@ -1,6 +1,4 @@
 <?php
-
-
 class Products extends CI_Controller{
     public function __construct(){
         parent::__construct();
@@ -58,10 +56,7 @@ class Products extends CI_Controller{
                     $upload_config['upload_path'] = './uploads/img/products/';
                     
                     $upload_config['file_ext_tolower'] = TRUE;
-                    
                     $upload_config['overwrite'] = TRUE;
-                    
-                
                     $this->load->library('upload'); 
         
                     $this->upload->initialize($upload_config);
@@ -84,13 +79,9 @@ class Products extends CI_Controller{
                                                 $picture,
                                                 $this->input->post('productCode'));
                    
-                 
-                         
                       $this->load->helper('url');
-                         
                          redirect(base_url('products'));
                     }else{
-                       
                         $view_params = [
                             'errors' => $this->upload->display_errors()
                         ];
@@ -98,9 +89,7 @@ class Products extends CI_Controller{
                     }
                     
                 } else{
-                    
                     $this->load->helper('form'); 
-                    
                     $this->load->view('products_upload/form',['errors' => '']);
                 }
                 

@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
+    <title>Register</title>
+</head>
+<body class="userbground">
+<div class="user">
 <?php echo validation_errors(); ?>
 <?php if(isset($error)):?>
     <?php echo $error; ?>
@@ -25,6 +34,7 @@
 
 
 <?php echo form_submit('submit','Regisztáció'); ?>
+<br/>
 <br/>
 <p>Már regisztráltál? <?php echo anchor(base_url('user/login/'),'Lépj be itt');?></p>
 

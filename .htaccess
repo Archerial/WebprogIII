@@ -1,5 +1,3 @@
-# Amennyiben egy mappában nem létezik nyitó állomány, akkor letiltom a mappa tartalmának listázását
-
 Options -Indexes
 RewriteEngine on
 

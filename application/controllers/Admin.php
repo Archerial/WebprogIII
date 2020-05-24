@@ -7,7 +7,6 @@ class Admin extends CI_Controller{
     }
 
     public function index(){
-        //Kell ide valami!!!!
     }
 
     public function adminregister(){

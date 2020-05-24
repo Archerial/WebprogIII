@@ -5,6 +5,9 @@ class User extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('products_model');
+
+        $this->load->library('cart');
     }
 
     public function index(){
@@ -119,6 +122,104 @@ class User extends CI_Controller{
             $this->load->view('user/user_profile', $view_params);
         
     }
+
+    //Cart
+
+    public function show_cart2(){
+        $this->load->helper('form');
+        $this->load->view('user/show_cart2');   
+    }
+
+    public function show_cart(){
+        if($this->input->post('submit')){
+
+            if($this->session->userdata('username')){
+                $this->load->helper('form');
+                $i = 0;
+                foreach ($this->cart->contents() as $item) {
+
+                $qty1 = count($this->input->post('qty'));
+                    for ($i = 0; $i < $qty1; $i++) {
+                        echo $_POST['qty'][$i];
+                        echo $_POST['rowid'][$i];
+                        $data = array('rowid' => $_POST[$i.'[rowid]'], 'qty' => $_POST[$i.'qty']);
+                        $this->cart->update($data);
+                    }
+
+                }
+                $this->load->helper('url');
+                
+                redirect(base_url('user/show_cart'));
+            } else{
+                $this->load->helper('url');
+                $this->load->helper('form');
+            }
+
+
+        } else{
+            $this->load->helper('url');
+            $this->load->helper('form'); 
+        }
+        $this->load->helper('form');
+        $this->load->helper('url');
+        $this->load->view('user/show_cart');
+    }
+
+    public function destroy_cart(){
+        if($this->session->userdata('username')){
+            foreach ($this->cart->contents() as $items){
+                $this->cart->remove($items['rowid']);
+            }
+                    $this->load->helper('url');
+                    redirect(base_url('products'));
+        }else{
+            $this->load->helper('url');
+            redirect(base_url('products'));
+        }
+    }
+
+    public function addCart($id){
+        $prod = $this->products_model->select_by_id($id);
+        $data = array(
+            'id'      => $prod->id,
+            'qty'     => 1,
+            'price'   => $prod->productPrice,
+            'name'    => $prod->productName
+        );
+
+        $this->cart->insert($data);
+        $this->load->helper('form');
+        $this->load->helper('url');
+        $this->load->view('user/show_cart');
+    }
+
+    public function removeItem($rowid){
+        $this->cart->remove($rowid);
+        
+        $this->load->helper('form');
+        $this->load->helper('url');
+        $this->load->view('user/show_cart');
+
+    }
+
+    public function makePdf(){
+        $this->load->helper('form');
+        $this->load->helper('url');
+        $this->load->view('user/show_cart_to_pdf');
+
+		$html = $this->output->get_output();
+
+		$this->load->library('pdf');
+
+		$this->dompdf->loadHtml($html);
+
+		$this->dompdf->setPaper('A4','portair');
+
+		$this->dompdf->render();
+
+		$this->dompdf->stream('Cart.pdf',array('Attachment'=>0));
+    }
+
 
 
 }

@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
+    <title>Login</title>
+</head>
+<body class="userbground">
+<div class="user">
 <?php echo validation_errors(); ?>
 <?php if(isset($error)):?>
     <?php echo $error; ?>
@@ -16,11 +25,15 @@
 <?php echo form_error('userPassword'); ?>
 <br/>
 <br/>
-
-
+<div class="loginBtn">
 <?php echo form_submit('submit','Belépés'); ?>
+</div>
 <br/>
-<p>Amennyiben még nem regisztráltál <?php echo anchor(base_url('user/register/'),'itt megteheted');?></p>
+<br/>
+<p>Amennyiben még nem regisztráltál <?php echo anchor(base_url('user/register/'),'itt megteheted!');?></p>
 
 
 <?php echo form_close(); ?>
+</div>
+</body>
+

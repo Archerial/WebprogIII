@@ -1,3 +1,14 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
+    <title>Products</title>
+</head>
+<body class="userbground">
+<?php if($this->session->userdata('admin')): ?>
+<div class="user">
 <?php echo validation_errors(); ?>
 <?php echo form_open(); ?>
 <?php $this->load->helper('url'); ?>
@@ -32,3 +43,4 @@
 
 <?php echo form_submit('submit','Beküld'); ?>
 <?php echo form_close(); ?>
+<?php endif; ?>

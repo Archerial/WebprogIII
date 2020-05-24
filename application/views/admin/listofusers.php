@@ -1,5 +1,19 @@
 <?php if($this->session->userdata('admin')): ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
+    <title>Users</title>
+</head>
+<body class="userbground">
+<div class="user2">
+<div class="list">
+    <div class="action">
+
     <?php echo anchor(base_url('admin/adminlogout/'),'Kilépés');?>
+    </div>
+    <div class="lista2">
 <?php if($users == NULL || empty($users)): ?>
     <p>Nincs regisztrálva egyetlen user sem</p>
 <?php else: ?>

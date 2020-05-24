@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
+    <title>Add admin</title>
+</head>
+<body class="userbground">
+<div class="user">
 <?php if($this->session->userdata('admin')): ?>
 <?php echo validation_errors(); ?>
 <?php if(isset($error)):?>

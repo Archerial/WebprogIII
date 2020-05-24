@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
+    <title>User</title>
+</head>
+<body class="userbground">
+<div class="user">
 <?php echo form_open(); ?>
 <?php echo $user->username . form_label(' adatlapja') ; ?>
 <br/>

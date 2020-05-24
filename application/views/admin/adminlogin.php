@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/bootstrap.css">
+    <title>Admin login</title>
+</head>
+<body class="userbground">
+<div class="user">
 <?php echo validation_errors(); ?>
 <?php if(isset($error)):?>
     <?php echo $error; ?>
