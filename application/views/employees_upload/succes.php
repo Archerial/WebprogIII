@@ -1,1 +1,0 @@
-<h1> 1 új képfájl sikeresen feltöltve </h1>
