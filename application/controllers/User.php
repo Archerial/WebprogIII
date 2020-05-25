@@ -75,8 +75,6 @@ class User extends CI_Controller{
             }
 
         } else{
-            $this->load->helper('form');
-            $this->load->view('user/login');
         }
         
         $this->load->helper('form');
