@@ -120,6 +120,29 @@
 
 }
 
+
+
+.readerror{
+  text-align: center;
+  color: tomato;
+  padding: 20px;
+}
+
+.readsucc{
+  text-align: center;
+  color: green;
+  padding:20px;
+}
+
+.critic{
+  text-align: center;
+  color: white;
+}
+
+.critic .error{
+  text-align: center;
+}
+
 .centermenu{
   width: 45%;
   display: flex;

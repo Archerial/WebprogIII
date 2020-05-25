@@ -21,21 +21,14 @@ class User_model extends CI_Model{
         
         return $this->db->insert_id();
     }
-
-    public function login($userEmail,$userPassword){
-        
-        $this->db->select('*');
+    //Lehet nem lesz jó így..!!!
+    public function login($userEmail){
+        $this->db->select('password');
         $this->db->from('users');
         $this->db->where('email',$userEmail);
-        $this->db->where('password',$userPassword);
         $query = $this->db->get()->row();
 
-        if($query != null){
-            return true;
-        }else{
-            return false;
-        }
-
+        return $query;
     }
 
     public function delete($id){

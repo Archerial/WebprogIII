@@ -10,8 +10,13 @@
 <div class="user2">
 <div class="list">
     <div class="action">
-
+    <div class="centermenu">
+<?php echo anchor(base_url('products/insert'),'Új hozzáadása'); ?>
+    <?php echo anchor(base_url('admin/listofusers/'),'Userek kezelése');?>
+    <?php echo anchor(base_url('Fileread'),'Fájl olvasás');?>
+    <?php echo anchor(base_url('admin/adminregister/'),'Admin hozzáadása');?>
     <?php echo anchor(base_url('admin/adminlogout/'),'Kilépés');?>
+    </div>
     </div>
     <div class="lista2">
 <?php if($users == NULL || empty($users)): ?>

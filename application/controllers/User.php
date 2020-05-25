@@ -11,7 +11,6 @@ class User extends CI_Controller{
     }
 
     public function index(){
-        //Kell ide valami!!!!
     }
 
     public function register(){
@@ -25,27 +24,33 @@ class User extends CI_Controller{
 
             if($this->form_validation->run() == TRUE){
                 $this->load->helper('form');
-                
+                $password = $this->input->post('userPassword');
                 $this->user_model->register($this->input->post('userEmail'),
                                             $this->input->post('userName'),
-                                            $this->input->post('userPassword'));
+                                            password_hash($password,PASSWORD_BCRYPT));
                    
                  $this->load->helper('url');
-                 redirect(base_url('products'));
+                 
+                 $this->load->library('session');
+                 $this->session->set_userdata('email','userEmail');
+                 redirect(base_url('products/userlist'));
             } else{
-
+                
+            $this->load->helper('form');
             }
 
 
         } else{
-            $this->load->helper('form');      
-            //$this->load->view('products_upload/form',['errors' => '']);
+            $this->load->helper('form');
         }
         $this->load->helper('form');
         $this->load->view('user/register');
     }
 
+
     public function login(){
+        
+        $this->load->helper('url');
         if($this->input->post('submit')){
 
             $this->load->library('form_validation');
@@ -54,29 +59,28 @@ class User extends CI_Controller{
 
             if($this->form_validation->run() == TRUE){
                 $this->load->helper('form');
-                
-                if($this->user_model->login($this->input->post('userEmail'),
-                $this->input->post('userPassword')) == TRUE){
+                $userdata = $this->user_model->login($this->input->post('userEmail'));
+                if(password_verify($this->input->post('userPassword'),$userdata->password) == TRUE){
                     
                     $this->load->library('session');
                     $this->session->set_userdata('email','userEmail');
                     
                     $this->load->helper('url');
                     redirect(base_url('products/userlist'));
-                }else{
-                    echo"Nem jo";
+                }else{ 
+                    $this->load->helper('form');
                 }
-                   
-                        
-                
             } else{
-                echo 'Nem megfelelő adatok';
+                $this->load->helper('form');
             }
 
         } else{
             $this->load->helper('form');
             $this->load->view('user/login');
         }
+        
+        $this->load->helper('form');
+        $this->load->view('user/login');
     }
 
     public function logout(){

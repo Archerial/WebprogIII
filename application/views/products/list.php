@@ -12,6 +12,7 @@
     <div class="centermenu">
     <?php echo anchor(base_url('products/insert'),'Új hozzáadása'); ?>
     <?php echo anchor(base_url('admin/listofusers/'),'Userek kezelése');?>
+    <?php echo anchor(base_url('Fileread'),'Fájl olvasás');?>
     <?php echo anchor(base_url('admin/adminregister/'),'Admin hozzáadása');?>
     <?php echo anchor(base_url('admin/adminlogout/'),'Kilépés');?>
     </div>
@@ -53,6 +54,7 @@
 <?php endif; ?>
 
 <?php else: 
+
     echo 'Először jelentkezzen be';
 ?>
 
